@@ -1,59 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中医导论答题系统</title>
-    <link rel="stylesheet" href="timu.css">
+    <title>中医导论复习</title>
+    <!-- 引入CSS文件 -->
+    <link rel="stylesheet" href="timu.css"> <!-- 确认路径正确无误 -->
 </head>
 <body>
     <!-- 页面顶部标题 -->
     <header class="header">
-        <h1>中医导论答题系统</h1>
+        <h1>中医题库复习</h1>
     </header>
 
-    <!-- 进度条 -->
+    <!-- 在头部添加进度条 -->
     <div class="progress-container">
-        <div class="progress" id="progress"></div>
+        <div class="progress-bar">
+            <div class="progress-bar-fill"></div>
+        </div>
     </div>
 
-    <!-- 答题统计信息栏 -->
+    <!-- 修改统计信息栏 -->
     <div class="stats-bar">
-        <p>当前题型：<span id="current-quiz-type"></span></p>
-        <p>已答题数：<span id="answered-count">0/0</span></p>
-        <p>当前得分：<span id="score">0</span></p>
+        <div class="stat-item">
+            <span class="stat-label">已答题：</span>
+            <span class="stat-value" id="answered-count">0/0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">得分：</span>
+            <span class="stat-value" id="score">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">正确率：</span>
+            <span class="stat-value" id="accuracy">0%</span>
+        </div>
     </div>
 
     <!-- 题库选择器 -->
-    <div class="quiz-selector" id="quiz-selector">
-        <button id="select-xz">选择题（20道）</button>
-        <button id="select-tk">填空题（20道）</button>
-        <button id="select-pd">判断题（10道）</button>
+    <div class="quiz-selector">
+        <label for="quiz-select">选择题库：</label>
+        <select id="quiz-select">
+            <option value="">请选择题库</option>
+            <option value="0">选择题</option>
+            <option value="1">填空题</option>
+            <option value="2">判断题</option>
+            <option value="3">终极测试（20单选+20填空+10判断）</option> <!-- 修改选项文本 -->
+        </select>
+        <button id="load-quiz-button">加载题库</button>
     </div>
 
-    <!-- 准备页面 -->
-    <div class="ready-page" id="ready-page" style="display: none;">
-        <h2 id="ready-title"></h2>
-        <p id="countdown">准备时间：3秒</p>
-        <button id="start-quiz-button" style="display: none;">立即开始</button>
-    </div>
+    <!-- 反馈信息 -->
+    <div class="feedback" id="feedback"></div> <!-- 将反馈信息移到题库选择器下方 -->
 
     <!-- 单个题目容器 -->
-    <div class="question-container" id="question-container" style="display: none;"></div>
+    <div class="question-container" id="question-container"></div>
 
     <!-- 提交按钮 -->
-    <button id="submit-answer-button" style="display: none;">提交答案</button>
-    <button id="next-page-button" style="display: none;">下一题型</button>
+    <button id="submit-answer-button">提交答案</button>
 
-    <!-- 结果展示 -->
-    <div class="result-container" id="result-container" style="display: none;">
-        <h2>答题完成</h2>
-        <p>总得分：<span id="final-score">0</span>/100</p>
-        <p>正确率：<span id="accuracy">0%</span></p>
-        <div class="wrong-questions" id="wrong-questions">
-            <h3>错题回顾</h3>
-            <!-- 动态加载错题 -->
-        </div>
+    <!-- 倒计时显示 -->
+    <div class="countdown-timer" id="countdown-timer">
+        <span class="countdown-text"></span>
+        <div class="countdown-progress"></div>
     </div>
 
     <script src="timu.js"></script>

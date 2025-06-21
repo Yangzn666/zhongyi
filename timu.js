@@ -1,10 +1,10 @@
 // timu.js
 
-// 定义题库文件路径
+// 定义题库文件路径（使用相对路径，避免特殊字符问题）
 const quizFiles = {
-    xz: 'xz.json',
-    tk: 'tk.json',
-    pd: 'pd.json'
+    0: 'xz.json',    // 选择题
+    1: 'tk.json',    // 填空题
+    2: 'pd.json',    // 判断题
 };
 
 // 初始化变量
@@ -12,162 +12,88 @@ let currentQuiz = null;
 let currentQuestionIndex = 0;
 let answeredCount = 0;
 let score = 0;
-let selectedQuizzes = {};
-let wrongAnswers = [];
-let currentQuizType = null;
-let preparationTime = 3; // 准备时间（秒）
+let currentTimer = null;  // 添加计时器引用
 
 // 获取DOM元素
 const questionContainer = document.getElementById('question-container');
 const submitButton = document.getElementById('submit-answer-button');
-const nextPageButton = document.getElementById('next-page-button');
-const resultContainer = document.getElementById('result-container');
-const finalScoreElement = document.getElementById('final-score');
-const accuracyElement = document.getElementById('accuracy');
-const wrongQuestionsContainer = document.getElementById('wrong-questions');
-const progressElement = document.getElementById('progress');
-const currentQuizTypeElement = document.getElementById('current-quiz-type');
+const feedbackElement = document.getElementById('feedback');
 const answeredCountElement = document.getElementById('answered-count');
 const scoreElement = document.getElementById('score');
-const readyPage = document.getElementById('ready-page');
-const readyTitle = document.getElementById('ready-title');
-const countdownElement = document.getElementById('countdown');
-const startQuizButton = document.getElementById('start-quiz-button');
-const selectXZButton = document.getElementById('select-xz');
-const selectTKButton = document.getElementById('select-tk');
-const selectPDButton = document.getElementById('select-pd');
+const accuracyElement = document.getElementById('accuracy');
+const quizSelect = document.getElementById('quiz-select');
+const loadQuizButton = document.getElementById('load-quiz-button');
 
-// 题型配置
-const quizConfig = {
-    xz: { name: "选择题", count: 20, scorePerQuestion: 2 },
-    tk: { name: "填空题", count: 20, scorePerQuestion: 2 },
-    pd: { name: "判断题", count: 10, scorePerQuestion: 2 }
-};
+// 倒计时相关元素
+const countdownText = document.querySelector('.countdown-text');
+const countdownProgress = document.querySelector('.countdown-progress');
 
-// 加载题库
-function loadQuiz(quizType) {
+// 加载单一类型题库
+function loadSingleTypeQuiz(quizNumber) {
     // 清空之前的题目
     questionContainer.innerHTML = '';
-    resultContainer.style.display = 'none';
-    nextPageButton.style.display = 'none';
+    feedbackElement.style.display = 'none';
+    submitButton.disabled = true;
     answeredCount = 0;
+    score = 0;
     currentQuestionIndex = 0;
-    currentQuizType = quizType;
-    
-    // 显示准备页面
-    showPreparationPage(quizType);
-}
+    updateStats();
 
-// 显示准备页面
-function showPreparationPage(quizType) {
-    // 设置准备标题和倒计时
-    readyTitle.textContent = `开始做${quizConfig[quizType].name}`;
-    countdownElement.textContent = `准备时间：${preparationTime}秒`;
-    
-    // 显示准备页面
-    readyPage.style.display = 'block';
-    readyPage.classList.add('fade-in');
-    
-    // 开始倒计时
-    const countdownInterval = setInterval(() => {
-        preparationTime--;
-        countdownElement.textContent = `准备时间：${preparationTime}秒`;
-        
-        if (preparationTime <= 0) {
-            clearInterval(countdownInterval);
-            startQuizButton.style.display = 'inline-block';
-            countdownElement.style.display = 'none';
-        }
-    }, 1000);
-}
-
-// 开始答题
-function startQuiz() {
-    // 隐藏准备页面
-    readyPage.style.display = 'none';
-    
-    // 重置准备时间
-    preparationTime = 3;
-    countdownElement.style.display = 'inline-block';
-    
-    // 如果已加载过该题型
-    if (selectedQuizzes[currentQuizType] && selectedQuizzes[currentQuizType].questions.length > 0) {
-        renderQuestion();
-        updateProgress();
+    // 检查是否选择了有效的题库
+    if (!quizNumber || !quizFiles[quizNumber]) {
+        alert('请选择一个有效的题库');
         return;
     }
-    
-    // 显示加载提示
-    questionContainer.innerHTML = '<p>正在加载题库，请稍候...</p>';
-    questionContainer.style.display = 'block';
-    
-    // 获取当前题库文件路径
-    const quizPath = quizFiles[currentQuizType];
-    console.log(`尝试加载题库: ${quizPath}`); // 添加调试信息
-    
-    // 第一次加载该题型
-    fetch(quizPath)
-        .then(response => {
-            console.log(`收到响应: ${quizPath}`, response); // 添加调试信息
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
+
+    // 使用fetch API加载JSON文件
+    fetch(quizFiles[quizNumber])
+        .then(response => response.json())
         .then(data => {
-            try {
-                console.log(`成功解析JSON数据: ${quizPath}`, data); // 添加调试信息
-                
-                // 验证数据格式
-                if (!Array.isArray(data)) {
-                    throw new Error('题库数据不是数组');
-                }
-                
-                // 随机选择指定数量的题目
-                const quizCount = quizConfig[currentQuizType].count;
-                const shuffled = [...data].sort(() => 0.5 - Math.random());
-                const selectedQuestions = shuffled.slice(0, quizCount);
-                
-                // 初始化题型数据
-                selectedQuizzes[currentQuizType] = {
-                    questions: selectedQuestions,
-                    answers: {},
-                    completed: false
-                };
-                
-                // 设置当前题库
-                currentQuiz = selectedQuizzes[currentQuizType].questions;
-                
-                // 渲染题目
+            currentQuiz = data;
+            if (currentQuiz.length > 0) {
                 renderQuestion();
-                updateProgress();
-            } catch (error) {
-                console.error('处理题库数据时出错:', error);
-                alert(`处理题库数据时出错: ${error.message}`);
+                submitButton.disabled = false;
+            } else {
+                questionContainer.innerHTML = '<p>题库为空</p>';
             }
         })
         .catch(error => {
             console.error('加载题库时出错:', error);
-            alert(`无法加载${quizConfig[currentQuizType].name}: ${error.message}\n请确保:\n1. 题库文件存在且路径正确\n2. 题库文件格式正确\n3. 没有浏览器安全限制（建议使用本地服务器运行）`);
-            
-            // 隐藏加载提示
-            questionContainer.style.display = 'none';
-            submitButton.style.display = 'none';
+            alert('无法加载题库，请稍后再试');
         });
+}
+
+// 新增：加载混合题库（xz: 选择题 x20, tk: 填空题 x20, pd: 判断题 x10）
+function loadMixedQuiz() {
+    Promise.all([
+        fetch(quizFiles[0]).then(res => res.json()), // xz.json - 选择题
+        fetch(quizFiles[1]).then(res => res.json()), // tk.json - 填空题
+        fetch(quizFiles[2]).then(res => res.json())  // pd.json - 判断题
+    ]).then(([xzData, tkData, pdData]) => {
+        const getRandomQuestions = (arr, count) =>
+            [...arr]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, count);
+
+        const selectedXZ = getRandomQuestions(xzData, 20); // 选20道选择题
+        const selectedTK = getRandomQuestions(tkData, 20); // 选20道填空题
+        const selectedPD = getRandomQuestions(pdData, 10); // 选10道判断题
+
+        currentQuiz = [...selectedXZ, ...selectedTK, ...selectedPD]; // 合并题目
+        currentQuestionIndex = 0;
+        answeredCount = 0;
+        score = 0;
+        updateStats();
+        renderQuestion();
+        submitButton.disabled = false;
+    }).catch(error => {
+        console.error('加载题库时出错:', error);
+        alert('无法加载题库，请稍后再试');
+    });
 }
 
 // 渲染单个题目
 function renderQuestion() {
-    // 隐藏所有容器
-    questionContainer.style.display = 'none';
-    submitButton.style.display = 'none';
-    
-    // 检查是否有当前题库
-    if (!currentQuiz || currentQuiz.length === 0) {
-        alert('题库为空，请重新选择题型');
-        return;
-    }
-    
     const question = currentQuiz[currentQuestionIndex];
     questionContainer.innerHTML = '';
 
@@ -175,214 +101,163 @@ function renderQuestion() {
     const questionTitle = document.createElement('h3');
     questionTitle.textContent = `${currentQuestionIndex + 1}. ${question.question}`;
     questionContainer.appendChild(questionTitle);
-    
-    // 根据题型添加不同内容
-    if (currentQuizType === 'xz') {
-        // 选择题
+
+    // 判断题型并渲染对应控件
+    if (question.options) {
+        // 选择题：单选或复选
         const optionsList = document.createElement('ul');
         question.options.forEach((option, index) => {
             const optionItem = document.createElement('li');
-            
-            // 创建单选按钮
             const optionInput = document.createElement('input');
-            optionInput.type = 'radio';
-            optionInput.name = `answer-${currentQuestionIndex}`;
+            optionInput.type = 'radio'; // 强制单选题
+            optionInput.name = 'answer';
             optionInput.value = index.toString();
-            
-            // 如果已回答过，设置为已选中
-            if (selectedQuizzes[currentQuizType].answers[currentQuestionIndex] !== undefined) {
-                optionInput.checked = selectedQuizzes[currentQuizType].answers[currentQuestionIndex] === index;
-            }
-            
-            // 添加事件监听器
-            optionInput.addEventListener('change', () => {
-                selectedQuizzes[currentQuizType].answers[currentQuestionIndex] = index;
-            });
-            
-            // 创建标签
+            optionItem.appendChild(optionInput);
             const optionLabel = document.createElement('label');
             optionLabel.textContent = option;
-            
-            // 将元素添加到页面
-            optionItem.appendChild(optionInput);
             optionItem.appendChild(optionLabel);
             optionsList.appendChild(optionItem);
         });
         questionContainer.appendChild(optionsList);
-    } else if (currentQuizType === 'tk') {
-        // 填空题
+    } else if (question.answer !== undefined) {
+        // 填空题：添加文本输入框
         const answerInput = document.createElement('input');
         answerInput.type = 'text';
-        answerInput.className = 'blank-input';
+        answerInput.id = 'fill-blank-input';
         answerInput.placeholder = '请输入答案';
+        answerInput.style.width = '100%';
+        answerInput.style.padding = '10px';
+        answerInput.style.marginTop = '15px';
+        answerInput.style.borderRadius = '8px';
+        answerInput.style.border = '1px solid #ccc';
+        answerInput.style.fontSize = '1rem';
+        answerInput.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+        answerInput.style.transition = 'border-color 0.3s ease, box-shadow 0.3s ease';
         
-        // 如果已回答过，设置值
-        if (selectedQuizzes[currentQuizType].answers[currentQuestionIndex] !== undefined) {
-            answerInput.value = selectedQuizzes[currentQuizType].answers[currentQuestionIndex];
-        }
-        
-        // 添加事件监听器
-        answerInput.addEventListener('input', () => {
-            selectedQuizzes[currentQuizType].answers[currentQuestionIndex] = answerInput.value;
+        // 悬停和聚焦样式
+        answerInput.addEventListener('focus', () => {
+            answerInput.style.borderColor = '#2980b9';
+            answerInput.style.boxShadow = '0 0 5px rgba(41, 128, 185, 0.5)';
         });
-        
-        // 创建包装元素
-        const inputWrapper = document.createElement('div');
-        inputWrapper.className = 'blank-wrapper';
-        inputWrapper.appendChild(answerInput);
-        
-        // 将元素添加到页面
-        questionContainer.appendChild(inputWrapper);
-    } else if (currentQuizType === 'pd') {
-        // 判断题
-        const optionsList = document.createElement('ul');
-        const options = ['正确', '错误'];
-        
-        options.forEach((option, index) => {
-            const optionItem = document.createElement('li');
-            
-            // 创建单选按钮
-            const optionInput = document.createElement('input');
-            optionInput.type = 'radio';
-            optionInput.name = `answer-${currentQuestionIndex}`;
-            optionInput.value = index.toString();
-            
-            // 如果已回答过，设置为已选中
-            if (selectedQuizzes[currentQuizType].answers[currentQuestionIndex] !== undefined) {
-                optionInput.checked = selectedQuizzes[currentQuizType].answers[currentQuestionIndex] === index;
-            }
-            
-            // 添加事件监听器
-            optionInput.addEventListener('change', () => {
-                selectedQuizzes[currentQuizType].answers[currentQuestionIndex] = index;
-            });
-            
-            // 创建标签
-            const optionLabel = document.createElement('label');
-            optionLabel.textContent = option;
-            
-            // 将元素添加到页面
-            optionItem.appendChild(optionInput);
-            optionItem.appendChild(optionLabel);
-            optionsList.appendChild(optionItem);
+        answerInput.addEventListener('blur', () => {
+            answerInput.style.borderColor = '#ccc';
+            answerInput.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
         });
-        
-        questionContainer.appendChild(optionsList);
+
+        questionContainer.appendChild(answerInput);
     }
-    
-    // 更新统计信息
-    updateStats();
-    
-    // 显示题目和提交按钮
-    questionContainer.style.display = 'block';
-    submitButton.style.display = 'inline-block';
 }
 
-// 提交答案
-function submitAnswers() {
-    const quizType = currentQuizType;
-    
-    if (!quizType) return;
-    
-    // 清空错题记录
-    wrongAnswers = [];
-    
-    // 计算得分
-    let correctCount = 0;
-    
-    for (let i = 0; i < currentQuiz.length; i++) {
-        const question = currentQuiz[i];
-        let userAnswer = selectedQuizzes[quizType].answers[i];
-        let isCorrect = false;
-        
-        if (quizType === 'xz') {
-            // 选择题
-            isCorrect = userAnswer === question.answer.charCodeAt(0) - 65;
-        } else if (quizType === 'tk') {
-            // 填空题
-            isCorrect = userAnswer && userAnswer.toLowerCase() === question.answer.toLowerCase();
-        } else if (quizType === 'pd') {
-            // 判断题
-            isCorrect = (userAnswer === 0 && question.answer === '正确') || 
-                        (userAnswer === 1 && question.answer === '错误');
+function checkAnswer() {
+    const question = currentQuiz[currentQuestionIndex];
+    let userAnswers = [];
+
+    if (question.options) {
+        // 处理选择题
+        const selectedInputs = document.querySelectorAll('input[name="answer"]:checked');
+        selectedInputs.forEach(input => {
+            userAnswers.push(parseInt(input.value));
+        });
+
+        if (userAnswers.length === 0) {
+            alert('请选择一个选项');
+            return;
         }
-        
+
+        const isCorrect = userAnswers[0] === question.correctAnswer;
+
+        answeredCount++;
         if (isCorrect) {
-            correctCount++;
+            score += 2; // 修改为每道题2分
+            feedbackElement.className = 'feedback correct';
+            feedbackElement.textContent = '回答正确！';
         } else {
-            // 记录错题
-            wrongAnswers.push({
-                question: question,
-                userAnswer: userAnswer,
-                quizType: quizType
-            });
+            feedbackElement.className = 'feedback incorrect';
+            // 使用 ?? 提供默认值，防止 undefined 情况
+            const correctOption = question.options?.[question.correctAnswer] ?? '未知';
+            feedbackElement.textContent = `回答错误，正确答案是：${correctOption}`;
         }
+
+        feedbackElement.style.display = 'block';
+        updateStats();
+
+        // 延迟跳转到下一题
+        setTimeout(() => {
+            if (currentQuestionIndex < currentQuiz.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+                feedbackElement.style.display = 'none';
+            } else {
+                submitButton.disabled = true;
+                // 显示总分
+                feedbackElement.textContent = `所有题目已完成！您的总得分为：${score}分`;
+            }
+        }, isCorrect ? 1500 : 7000); // 正确延迟1.5秒，错误延迟7秒
+
+    } else if (question.answer !== undefined) {
+        // 处理填空题
+        const inputElement = document.getElementById('fill-blank-input');
+        const userAnswer = inputElement?.value.trim() ?? ''; // 安全访问输入框
+
+        const isCorrect = userAnswer.toLowerCase() === (question.answer?.toLowerCase() ?? '');
+
+        answeredCount++;
+        if (isCorrect) {
+            score += 2; // 修改为每道题2分
+            feedbackElement.className = 'feedback correct';
+            feedbackElement.textContent = '回答正确！';
+        } else {
+            feedbackElement.className = 'feedback incorrect';
+            feedbackElement.textContent = `回答错误，正确答案是：${question.answer ?? '未知'}`;
+        }
+
+        feedbackElement.style.display = 'block';
+        updateStats();
+
+        // 延迟跳转到下一题
+        setTimeout(() => {
+            if (currentQuestionIndex < currentQuiz.length - 1) {
+                currentQuestionIndex++;
+                renderQuestion();
+                feedbackElement.style.display = 'none';
+            } else {
+                submitButton.disabled = true;
+                // 显示总分
+                feedbackElement.textContent = `所有题目已完成！您的总得分为：${score}分`;
+            }
+        }, isCorrect ? 1500 : 7000); // 正确延迟1.5秒，错误延迟7秒
     }
-    
-    // 计算得分
-    const quizConfigItem = quizConfig[quizType];
-    score = correctCount * quizConfigItem.scorePerQuestion;
-    
-    // 更新完成状态
-    selectedQuizzes[quizType].completed = true;
-    
-    // 显示结果
-    showResults(correctCount, currentQuiz.length, quizConfigItem.scorePerQuestion);
 }
 
-// 显示结果
-function showResults(correctCount, totalCount, scorePerQuestion) {
-    // 隐藏题目和提交按钮
-    questionContainer.style.display = 'none';
-    submitButton.style.display = 'none';
-    
-    // 显示下一题型按钮或完成结果
-    const quizKeys = Object.keys(quizConfig);
-    const currentIndex = quizKeys.indexOf(currentQuizType);
-    
-    if (currentIndex < quizKeys.length - 1) {
-        // 还有下一个题型
-        nextPageButton.style.display = 'inline-block';
+// 比较两个数组是否相等
+function arraysEqual(a, b) {
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+
+// 更新答题统计信息
+function updateStats() {
+    answeredCountElement.textContent = answeredCount;
+    scoreElement.textContent = score;
+    accuracyElement.textContent = answeredCount > 0 ? ((score / answeredCount) * 100).toFixed(2) + '%' : '0%';
+}
+
+// 处理题库选择
+loadQuizButton.addEventListener('click', () => {
+    const selectedQuiz = quizSelect.value;
+    if (selectedQuiz === '') {
+        alert('请选择题库类型');
+        return;
+    }
+    if (selectedQuiz === '3') { // 新增选项“混合题库”
+        loadMixedQuiz();
     } else {
-        // 所有题型完成，显示最终结果
-        resultContainer.style.display = 'block';
-        finalScoreElement.textContent = calculateTotalScore();
-        accuracyElement.textContent = ((correctCount / totalCount) * 100).toFixed(2) + '%';
-        displayWrongQuestions();
+        loadSingleTypeQuiz(selectedQuiz);
     }
-    
-    // 更新进度条
-    updateProgress();
-}
-
-// 处理开始选择题
-document.getElementById('select-xz').addEventListener('click', () => {
-    loadQuiz('xz');
 });
-
-// 处理开始填空题
-document.getElementById('select-tk').addEventListener('click', () => {
-    loadQuiz('tk');
-});
-
-// 处理开始判断题
-document.getElementById('select-pd').addEventListener('click', () => {
-    loadQuiz('pd');
-});
-
-// 处理开始答题按钮
-document.getElementById('start-quiz-button').addEventListener('click', startQuiz);
 
 // 处理提交答案
-submitButton.addEventListener('click', submitAnswers);
-
-// 处理下一题型按钮
-nextPageButton.addEventListener('click', () => {
-    const quizKeys = Object.keys(quizConfig);
-    const currentIndex = quizKeys.indexOf(currentQuizType);
-    
-    if (currentIndex < quizKeys.length - 1) {
-        // 加载下一个题型
-        loadQuiz(quizKeys[currentIndex + 1]);
-    }
-});
+submitButton.addEventListener('click', checkAnswer);

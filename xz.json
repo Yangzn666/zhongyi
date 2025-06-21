@@ -2,455 +2,553 @@
   {
     "id": 1,
     "question": "下列哪项不属于解表剂的作用",
-    "options": ["A. 发汗", "B. 解肌", "C. 透疹", "D. 清热"],
-    "answer": "D"
+    "options": ["发汗", "解肌", "透疹", "清热"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 2,
     "question": "麻黄汤主治",
-    "options": ["A. 外感风寒表虚证", "B. 外感风寒表实证", "C. 风热表证", "D. 外寒内饮证"],
-    "answer": "B"
+    "options": ["外感风寒表虚证", "外感风寒表实证", "风热表证", "外寒内饮证"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 3,
     "question": "小柴胡汤中柴胡与黄芩的配伍意义是",
-    "options": ["A. 和解少阳", "B. 疏肝理气", "C. 清泻肝火", "D. 解表清里"],
-    "answer": "A"
+    "options": ["和解少阳", "疏肝理气", "清泻肝火", "解表清里"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 4,
     "question": "白虎汤的主治证是",
-    "options": ["A. 阳明经热盛证", "B. 气分热盛证", "C. 营分热证", "D. 血分热证"],
-    "answer": "A"
+    "options": ["阳明经热盛证", "气分热盛证", "营分热证", "血分热证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 5,
     "question": "清营汤中体现 “透热转气” 的药物是",
-    "options": ["A. 犀角、生地", "B. 银花、连翘", "C. 黄连、竹叶", "D. 丹参、玄参"],
-    "answer": "B"
+    "options": ["犀角、生地", "银花、连翘", "黄连、竹叶", "丹参、玄参"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 6,
     "question": "理中丸的功用是",
-    "options": ["A. 温中祛寒，补气健脾", "B. 温中补虚，和里缓急", "C. 温中补虚，降逆止呕", "D. 回阳救逆"],
-    "answer": "A"
+    "options": ["温中祛寒，补气健脾", "温中补虚，和里缓急", "温中补虚，降逆止呕", "回阳救逆"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 7,
     "question": "四君子汤的组成药物中不包括",
-    "options": ["A. 人参", "B. 黄芪", "C. 白术", "D. 茯苓"],
-    "answer": "B"
+    "options": ["人参", "黄芪", "白术", "茯苓"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 8,
     "question": "四物汤的主治证是",
-    "options": ["A. 气血两虚证", "B. 营血虚滞证", "C. 心脾气血两虚证", "D. 肝肾阴虚证"],
-    "answer": "B"
+    "options": ["气血两虚证", "营血虚滞证", "心脾气血两虚证", "肝肾阴虚证"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 9,
     "question": "六味地黄丸中 “三补” 的药物是",
-    "options": ["A. 熟地、山药、山茱萸", "B. 泽泻、丹皮、茯苓", "C. 熟地、泽泻、山药", "D. 山茱萸、丹皮、茯苓"],
-    "answer": "A"
+    "options": ["熟地、山药、山茱萸", "泽泻、丹皮、茯苓", "熟地、泽泻、山药", "山茱萸、丹皮、茯苓"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 10,
     "question": "牡蛎散的功用是",
-    "options": ["A. 益气固表止汗", "B. 敛肺止咳", "C. 涩肠止泻", "D. 补肾固精"],
-    "answer": "A"
+    "options": ["益气固表止汗", "敛肺止咳", "涩肠止泻", "补肾固精"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 11,
     "question": "越鞠丸主治",
-    "options": ["A. 六郁证", "B. 梅核气", "C. 寒痰壅肺证", "D. 胃虚痰阻气逆证"],
-    "answer": "A"
+    "options": ["六郁证", "梅核气", "寒痰壅肺证", "胃虚痰阻气逆证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 12,
     "question": "苏子降气汤的功用是",
-    "options": ["A. 降气平喘，祛痰止咳", "B. 降气化痰，益气和胃", "C. 清热化痰，理气止咳", "D. 燥湿化痰，平肝熄风"],
-    "answer": "A"
+    "options": ["降气平喘，祛痰止咳", "降气化痰，益气和胃", "清热化痰，理气止咳", "燥湿化痰，平肝熄风"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 13,
     "question": "桃核承气汤主治",
-    "options": ["A. 下焦蓄血证", "B. 血瘀胸中证", "C. 中风后遗症", "D. 冲任虚寒，瘀血阻滞证"],
-    "answer": "A"
+    "options": ["下焦蓄血证", "血瘀胸中证", "中风后遗症", "冲任虚寒，瘀血阻滞证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 14,
     "question": "血府逐瘀汤的组成中含有",
-    "options": [
-      "A. 桃仁、红花、当归、川芎、生地、赤芍",
-      "B. 桃仁、红花、当归、川芎、熟地、白芍",
-      "C. 桃仁、红花、当归、川芎、生地、白芍",
-      "D. 桃仁、红花、当归、川芎、熟地、赤芍"
-    ],
-    "answer": "A"
+    "options": ["桃仁、红花、当归、川芎、生地、赤芍", "桃仁、红花、当归、川芎、熟地、白芍", "桃仁、红花、当归、川芎、生地、白芍", "桃仁、红花、当归、川芎、熟地、赤芍"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 15,
     "question": "五苓散的君药是",
-    "options": ["A. 泽泻", "B. 茯苓", "C. 猪苓", "D. 白术"],
-    "answer": "A"
+    "options": ["泽泻", "茯苓", "猪苓", "白术"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 16,
     "question": "藿香正气散主治",
-    "options": ["A. 湿滞中焦证", "B. 外寒里湿证", "C. 湿热黄疸证", "D. 水湿痰饮证"],
-    "answer": "B"
+    "options": ["湿滞中焦证", "外寒里湿证", "湿热黄疸证", "水湿痰饮证"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 17,
     "question": "二陈汤的主治证是",
-    "options": ["A. 湿痰证", "B. 热痰证", "C. 燥痰证", "D. 寒痰证"],
-    "answer": "A"
+    "options": ["湿痰证", "热痰证", "燥痰证", "寒痰证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 18,
     "question": "川芎茶调散主治",
-    "options": ["A. 外感风邪头痛", "B. 肝阳上亢头痛", "C. 瘀血头痛", "D. 血虚头痛"],
-    "answer": "A"
+    "options": ["外感风邪头痛", "肝阳上亢头痛", "瘀血头痛", "血虚头痛"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 19,
     "question": "羚角钩藤汤的功用是",
-    "options": ["A. 凉肝熄风，增液舒筋", "B. 镇肝熄风，滋阴潜阳", "C. 平肝熄风，清热活血", "D. 滋阴熄风"],
-    "answer": "A"
+    "options": ["凉肝熄风，增液舒筋", "镇肝熄风，滋阴潜阳", "平肝熄风，清热活血", "滋阴熄风"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 20,
     "question": "大定风珠的主治证是",
-    "options": ["A. 热极生风证", "B. 肝阳化风证", "C. 阴虚风动证", "D. 血虚生风证"],
-    "answer": "C"
+    "options": ["热极生风证", "肝阳化风证", "阴虚风动证", "血虚生风证"],
+    "correctAnswer": 2,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 21,
     "question": "解表剂的主要作用是",
-    "options": ["A. 清解里热", "B. 和解少阳", "C. 发汗、解肌、透疹", "D. 温里散寒"],
-    "answer": "C"
+    "options": ["清解里热", "和解少阳", "发汗、解肌、透疹", "温里散寒"],
+    "correctAnswer": 2,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 22,
     "question": "麻黄汤中麻黄的作用不包括",
-    "options": ["A. 发汗解表", "B. 宣肺平喘", "C. 利水消肿", "D. 解肌发表"],
-    "answer": "D"
+    "options": ["发汗解表", "宣肺平喘", "利水消肿", "解肌发表"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 23,
     "question": "桂枝汤主治",
-    "options": ["A. 外感风寒表实证", "B. 外感风寒表虚证", "C. 风热表证", "D. 外寒内饮证"],
-    "answer": "B"
+    "options": ["外感风寒表实证", "外感风寒表虚证", "风热表证", "外寒内饮证"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 24,
     "question": "小青龙汤中干姜、细辛的作用是",
-    "options": ["A. 散寒解表", "B. 温肺化饮", "C. 温中止呕", "D. 温肾助阳"],
-    "answer": "B"
+    "options": ["散寒解表", "温肺化饮", "温中止呕", "温肾助阳"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 25,
     "question": "银翘散和桑菊饮共有的药物是",
-    "options": [
-      "A. 银花、连翘、薄荷、桔梗、芦根",
-      "B. 桑叶、菊花、薄荷、桔梗、甘草",
-      "C. 连翘、薄荷、桔梗、甘草、芦根",
-      "D. 银花、薄荷、桔梗、甘草、芦根"
-    ],
-    "answer": "A"
+    "options": ["银花、连翘、薄荷、桔梗、芦根", "桑叶、菊花、薄荷、桔梗、甘草", "连翘、薄荷、桔梗、甘草、芦根", "银花、薄荷、桔梗、甘草、芦根"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 26,
     "question": "和解剂不包括",
-    "options": ["A. 和解少阳剂", "B. 调和肝脾剂", "C. 调和胃肠剂", "D. 解表清里剂"],
-    "answer": "D"
+    "options": ["和解少阳剂", "调和肝脾剂", "调和胃肠剂", "解表清里剂"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 27,
     "question": "小柴胡汤中柴胡与黄芩配伍的意义是",
-    "options": ["A. 和解少阳", "B. 疏肝理气", "C. 清泻肝火", "D. 解表清里"],
-    "answer": "A"
+    "options": ["和解少阳", "疏肝理气", "清泻肝火", "解表清里"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 28,
     "question": "逍遥散的功效是",
-    "options": ["A. 疏肝理气，活血止痛", "B. 疏肝健脾，养血调经", "C. 和解少阳，内泻热结", "D. 透邪解郁，疏肝理脾"],
-    "answer": "B"
+    "options": ["疏肝理气，活血止痛", "疏肝健脾，养血调经", "和解少阳，内泻热结", "透邪解郁，疏肝理脾"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 29,
     "question": "半夏泻心汤主治",
-    "options": ["A. 寒热互结之痞证", "B. 肝郁脾虚之痛泻", "C. 伤寒少阳证", "D. 少阳阳明合病"],
-    "answer": "A"
+    "options": ["寒热互结之痞证", "肝郁脾虚之痛泻", "伤寒少阳证", "少阳阳明合病"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 30,
     "question": "清热剂的立法依据是",
-    "options": ["A. 《内经》“热者寒之”", "B. 《内经》“虚则补之”", "C. 《内经》“结者散之”", "D. 《内经》“散者收之”"],
-    "answer": "A"
+    "options": ["《内经》“热者寒之”", "《内经》“虚则补之”", "《内经》“结者散之”", "《内经》“散者收之”"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 31,
     "question": "白虎汤主治",
-    "options": ["A. 阳明经热盛证", "B. 邪热初入营分热证", "C. 热入血分证", "D. 三焦火毒热盛之证"],
-    "answer": "A"
+    "options": ["阳明经热盛证", "邪热初入营分热证", "热入血分证", "三焦火毒热盛之证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 32,
     "question": "清营汤中体现 “透热转气” 的药物是",
-    "options": ["A. 犀角（今用水牛角）、生地", "B. 银花、连翘", "C. 黄连、竹叶", "D. 丹参、玄参"],
-    "answer": "B"
+    "options": ["犀角（今用水牛角）、生地", "银花、连翘", "黄连、竹极叶", "丹参、玄参"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 33,
     "question": "犀角地黄汤主治",
-    "options": ["A. 热入血分证", "B. 营分热证", "C. 气分热证", "D. 卫分热证"],
-    "answer": "A"
+    "options": ["热入血分证", "营分热证", "气分热证", "卫分热证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 34,
     "question": "黄连解毒汤的功用是",
-    "options": ["A. 清热解毒泄心肺，辛凉疏散除风热", "B. 泻火解毒", "C. 清上泄下，泻火通便", "D. 清热解毒，活血止痛"],
-    "answer": "B"
+    "options": ["清热解毒泄心肺，辛凉疏散除风热", "泻火解毒", "清上泄下，泻火通便", "清热解毒，活血止痛"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 35,
     "question": "温里剂的适应证不包括",
-    "options": ["A. 脾胃虚寒", "B. 阴盛阳衰", "C. 经脉寒凝", "D. 风热表证"],
-    "answer": "D"
+    "options": ["脾胃虚寒", "阴盛阳衰", "经脉寒凝", "风热表证"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 36,
     "question": "理中丸主治",
-    "options": ["A. 中焦虚寒证", "B. 心肾阳衰寒厥证", "C. 血虚寒厥证", "D. 寒凝经脉之痹痛"],
-    "answer": "A"
+    "options": ["中焦虚寒证", "心肾阳衰寒厥证", "血虚寒厥证", "寒凝经脉之痹痛"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 37,
     "question": "小建中汤的组成是",
-    "options": [
-      "A. 桂枝汤加饴糖",
-      "B. 桂枝汤倍桂枝加饴糖",
-      "C. 桂枝汤倍芍药加饴糖",
-      "D. 桂枝汤去芍药加饴糖"
-    ],
-    "answer": "C"
+    "options": ["桂枝汤加饴糖", "桂枝汤倍桂枝加饴糖", "桂枝汤倍芍药加饴糖", "桂枝汤去芍药加饴糖"],
+    "correctAnswer": 2,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 38,
     "question": "四逆汤的治法是",
-    "options": ["A. 温中祛寒，补气健脾", "B. 回阳救逆", "C. 温经散寒，养血通脉", "D. 温阳补血，散寒通滞"],
-    "answer": "B"
+    "options": ["温中祛寒，补气健脾", "回阳救逆", "温经散寒，养血通脉", "温阳补血，散寒通滞"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 39,
     "question": "当归四逆汤主治",
-    "options": ["A. 血虚寒厥证", "B. 阴疽", "C. 中焦虚寒，肝脾失和证", "D. 胃中虚寒证"],
-    "answer": "A"
+    "options": ["血虚寒厥证", "阴疽", "中焦虚寒，肝脾失和证", "胃中虚寒证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 40,
     "question": "补益剂的立法依据是",
-    "options": ["A. 《内经》“虚则补之”", "B. 《内经》“热者寒之”", "C. 《本经》“疗热以寒药”", "D. 《内经》“结者散之”"],
-    "answer": "A"
+    "options": ["《内经》“虚则补之”", "《内经》“热者寒之”", "《本经》“疗热以寒药”", "《内经》“结者散之”"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 41,
     "question": "四君子汤的作用特点是",
-    "options": ["A. 补气强于四君，祛湿和胃", "B. 专补中气，平补不峻", "C. 气阴两补，重在补气", "D. 重在补血，兼以行血"],
-    "answer": "B"
+    "options": ["补气强于四君，祛湿和胃", "专补中气，平补不峻", "气阴两补，重在补气", "重在补血，兼以行血"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 42,
     "question": "参苓白术散主治",
-    "options": ["A. 脾胃气虚挟湿证", "B. 脾胃气虚轻证", "C. 肺之气阴亏虚症", "D. 表虚卫气不固之证"],
-    "answer": "A"
+    "options": ["脾胃气虚挟湿证", "脾胃气虚轻证", "肺之气阴亏虚症", "表虚卫气不固之证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 43,
     "question": "四物汤的主治证是",
-    "options": ["A. 营血虚滞证", "B. 心脾气血两虚证", "C. 肾阴亏虚证", "D. 肾阳亏虚证"],
-    "answer": "A"
+    "options": ["营血虚滞证", "心脾气血两虚证", "肾阴亏虚证", "肾阳亏虚证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 44,
     "question": "六味地黄丸中 “三补” 的药物是",
-    "options": ["A. 熟地、山药、山茱萸", "B. 泽泻、丹皮、茯苓", "C. 熟地、泽泻、山药", "D. 山茱萸、丹皮、茯苓"],
-    "answer": "A"
+    "options": ["熟地、山药、山茱萸", "泽泻、丹皮、茯苓", "熟地、泽泻、山药", "山茱萸、丹皮、茯苓"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 45,
     "question": "固涩剂的适应证是",
-    "options": ["A. 正气耗散，滑脱不禁的病证", "B. 气分实证", "C. 血分病证", "D. 水湿病证"],
-    "answer": "A"
+    "options": ["正气耗散，滑脱不禁的病证", "气分实证", "血分病证", "水湿病证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 46,
     "question": "牡蛎散的功用是",
-    "options": ["A. 益气固表敛汗", "B. 补肺收敛止咳", "C. 温补脾肾，涩肠止利", "D. 补肾固精缩尿"],
-    "answer": "A"
+    "options": ["益气固表敛汗", "补肺收敛止咳", "温补脾肾，涩肠止利", "补肾固精缩尿"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 47,
     "question": "真人养脏汤和四神丸的共同主治是",
-    "options": ["A. 脾肾虚寒泄泻", "B. 肝旺脾虚之痛泻", "C. 湿热痢疾", "D. 热毒痢疾"],
-    "answer": "A"
+    "options": ["脾肾虚寒泄泻", "肝旺脾虚之痛泻", "湿热痢疾", "热毒痢疾"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 48,
     "question": "固冲汤主治",
-    "options": ["A. 气虚冲脉不固之证", "B. 阴虚有热之月经不调", "C. 脾虚湿停肝郁之带下", "D. 肾虚之遗滑证"],
-    "answer": "A"
+    "options": ["气虚冲脉不固之证", "阴虚有热之月经不调", "脾虚湿停肝郁之带下", "肾虚之遗滑证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 49,
     "question": "理气剂的立法是",
-    "options": ["A. 《内经》“结者散之”；“高者抑之”", "B. 《内经》“虚则补之”", "C. 《内经》“热者寒之”", "D. 《本经》“疗热以寒药”"],
-    "answer": "A"
+    "options": ["《内经》“结者散之”；“高者抑之”", "《内经》“虚则补之”", "《内经》“热者寒之”", "《本经》“疗热以寒药”"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 50,
     "question": "越鞠丸主治",
-    "options": ["A. 六郁之证", "B. 梅核气", "C. 寒痰壅肺证", "D. 胃虚痰阻气逆证"],
-    "answer": "A"
+    "options": ["六郁之证", "梅核气", "寒痰壅肺证", "胃虚痰阻气逆证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 51,
     "question": "半夏厚朴汤主治",
-    "options": ["A. 梅核气", "B. 六郁之证", "C. 寒痰壅肺证", "D. 痰热壅肺证"],
-    "answer": "A"
+    "options": ["梅核气", "六郁之证", "寒痰壅肺证", "痰热壅肺证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 52,
     "question": "苏子降气汤的功用是",
-    "options": ["A. 降气而温化寒痰，兼温补下元", "B. 降气而清热化痰，定喘力强", "C. 降逆化痰，益气和胃", "D. 行气疏肝，散寒止痛"],
-    "answer": "A"
+    "options": ["降气而温化寒痰，兼温补下元", "降气而清热化痰，定喘力强", "降逆化痰，益气和胃", "行气疏肝，散寒止痛"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 53,
     "question": "定喘汤主治",
-    "options": ["A. 痰热壅肺证", "B. 寒痰壅肺证", "C. 胃虚痰阻气逆证", "D. 梅核气"],
-    "answer": "A"
+    "options": ["痰热壅肺证", "寒痰壅肺证", "胃虚痰阻气极逆证", "梅核气"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 54,
     "question": "理血剂的作用不包括",
-    "options": ["A. 活血祛瘀", "B. 止血", "C. 补血", "D. 以上都不是"],
-    "answer": "D"
+    "options": ["活血祛瘀", "止血", "补血", "以上都不是"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 55,
     "question": "桃核承气汤主治",
-    "options": ["A. 下焦蓄血证", "B. 血瘀胸中，血行不畅之证", "C. 中风 (或中风后遗症)", "D. 冲任虚寒，瘀血阻滞之证"],
-    "answer": "A"
+    "options": ["下焦蓄血证", "血瘀胸中，血行不畅之证", "中风 (或中风后遗症)", "冲任虚寒，瘀血阻滞之证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 56,
     "question": "血府逐瘀汤的组成不包括",
-    "options": [
-      "A. 桃仁、红花、当归、川芎、生地、赤芍",
-      "B. 桃仁、红花、当归、川芎、熟地、白芍",
-      "C. 桃仁、红花、当归、川芎、生地、白芍",
-      "D. 桃仁、红花、当归、川芎、熟地、赤芍"
-    ],
-    "answer": "B"
+    "options": ["桃仁、红花、当归、川芎、生地、赤芍", "桃仁、红花、当归、川芎、熟地、白芍", "桃仁、红花、当归、川芎、生地、白芍", "桃仁、红花、当归、川芎、熟地、赤芍"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 57,
     "question": "补阳还五汤重用黄芪的目的是",
-    "options": ["A. 补气固表", "B. 补气行血", "C. 补气升阳", "D. 补气利水"],
-    "answer": "B"
+    "options": ["补气固表", "补气行血", "补气升阳", "补气利水"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 58,
     "question": "温经汤主治",
-    "options": ["A. 月经不调，久不受孕", "B. 恶露不行", "C. 血热妄行的上部出血", "D. 血淋"],
-    "answer": "A"
+    "options": ["月经不调，久不受孕", "恶露不行", "血热妄行的上部出血", "血淋"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 59,
     "question": "祛湿剂的立法是",
-    "options": [
-      "A. 《内经》“湿淫于内，以苦燥之，以淡渗之”",
-      "B. 《内经》“结者散之”",
-      "C. 《内经》“虚则补之”",
-      "D. 《内经》“热者寒之”"
-    ],
-    "answer": "A"
+    "options": ["《内经》“湿淫于内，以苦燥之，以淡渗之”", "《内经》“结者散之”", "《内经》“虚则补之”", "《内经》“热者寒之”"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 60,
     "question": "平胃散的主治证是",
-    "options": ["A. 湿滞中焦证", "B. 外寒里湿证", "C. 湿热黄疸", "D. 水湿痰饮证"],
-    "answer": "A"
+    "options": ["湿滞中焦证", "外寒里湿证", "湿热黄疸", "水湿痰饮证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 61,
     "question": "藿香正气散的作用特点不包括",
-    "options": ["A. 祛湿不及平胃", "B. 长于行气止痛止泻", "C. 解表散风寒", "D. 燥湿运脾力强"],
-    "answer": "D"
+    "options": ["祛湿不及平胃", "长于行气止痛止泻", "解表散风寒", "燥湿运脾力强"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 62,
     "question": "茵陈蒿汤主治",
-    "options": ["A. 湿热黄疸（阳黄）", "B. 湿温初起或暑温挟湿", "C. 湿热淋证", "D. 水湿痰饮证"],
-    "answer": "A"
+    "options": ["湿热黄疸（阳黄）", "湿温初起或暑温挟湿", "湿热淋证", "水湿痰饮证"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 63,
     "question": "五苓散的君药是",
-    "options": ["A. 泽泻", "B. 茯苓", "C. 猪苓", "D. 白术"],
-    "answer": "A"
+    "options": ["泽泻", "茯苓", "猪苓", "白术"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 64,
     "question": "苓桂术甘汤主治",
-    "options": ["A. 痰饮", "B. 风水", "C. 风湿", "D. 脾肾阳虚水肿"],
-    "answer": "A"
+    "options": ["痰饮", "风水", "风湿", "脾肾阳虚水肿"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 65,
     "question": "真武汤和实脾散的共同组成不包括",
-    "options": ["A. 附子", "B. 干姜", "C. 茯苓", "D. 白术"],
-    "answer": "B"
+    "options": ["附子", "干姜", "茯苓", "白术"],
+    "correctAnswer": 1,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 66,
     "question": "独活寄生汤的作用特点是",
-    "options": [
-      "A. 祛邪 — 祛风湿、止痹痛，扶正 — 益肝肾、补气血",
-      "B. 专于温阳利水",
-      "C. 温阳健脾力强",
-      "D. 燥湿运脾力强"
-    ],
-    "answer": "A"
+    "options": ["祛邪 — 祛风湿、止痹痛，扶正 — 益肝肾、补气血", "专于温阳利水", "温阳健脾力强", "燥湿运脾力强"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 67,
     "question": "祛痰剂的立法不包括",
-    "options": [
-      "A. 《内经》“客者除之”",
-      "B. 《医方论》“治痰大法，湿则宜燥，火则宜清，风则宜散，寒则宜温，气则宜顺，食则宜消”",
-      "C. 《内经》“结者散之”",
-      "D. 以上都不是"
-    ],
-    "answer": "D"
+    "options": ["《内经》“客者除之”", "《医方论》“治痰大法，湿则宜燥，火则宜清，风则宜散，寒则宜温，气则宜顺，食则宜消”", "《内经》“结者散之”", "以上都不是"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 68,
     "question": "二陈汤主治",
-    "options": ["A. 湿痰咳嗽", "B. 热痰咳嗽", "C. 燥痰咳嗽", "D. 寒痰咳嗽"],
-    "answer": "A"
+    "options": ["湿痰咳嗽", "热痰咳嗽", "燥痰咳嗽", "寒痰咳嗽"],
+    "correctAnswer": 0,
+    "type": "single",
+    "explanation": ""
   },
   {
     "id": 69,
     "question": "清气化痰丸的组成不包括",
-    "options": [
-      "A. 二陈汤去甘草",
-      "B. 加胆星、芩、蒌仁",
-      "C. 加枳、杏、姜汁",
-      "D. 加天麻、白术"
-    ],
-    "answer": "D"
+    "options": ["二陈汤去甘草", "加胆星、芩、蒌仁", "加枳、杏、姜汁", "加天麻、白术"],
+    "correctAnswer": 3,
+    "type": "single",
+    "explanation": ""
   }
 ]
