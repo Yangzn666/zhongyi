@@ -2,14 +2,14 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>中医导论复习</title>
+    <title>习概导论选择题</title>
     <!-- 引入CSS文件 -->
     <link rel="stylesheet" href="timu.css"> <!-- 确认路径正确无误 -->
 </head>
 <body>
     <!-- 页面顶部标题 -->
     <header class="header">
-        <h1>中医题库复习</h1>
+        <h1>习概导论选择题（后有多选）</h1>
     </header>
 
     <!-- 在头部添加进度条 -->
@@ -33,6 +33,10 @@
             <span class="stat-label">正确率：</span>
             <span class="stat-value" id="accuracy">0%</span>
         </div>
+        <div class="stat-item">
+            <span class="stat-label">剩余题：</span>
+            <span class="stat-value" id="remaining-questions">0题</span>
+        </div>
     </div>
 
     <!-- 题库选择器 -->
@@ -43,7 +47,7 @@
             <option value="0">选择题</option>
             <option value="1">填空题</option>
             <option value="2">判断题</option>
-            <option value="3">终极测试（20单选+20填空+10判断）</option> <!-- 修改选项文本 -->
+            <option value="3">混合题库（20单选+20填空+10判断）</option> <!-- 修改选项文本 -->
         </select>
         <button id="load-quiz-button">加载题库</button>
     </div>

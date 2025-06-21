@@ -28,6 +28,14 @@ const loadQuizButton = document.getElementById('load-quiz-button');
 const countdownText = document.querySelector('.countdown-text');
 const countdownProgress = document.querySelector('.countdown-progress');
 
+// 新增：更新剩余题数显示
+function updateRemainingQuestions() {
+    const remainingElement = document.getElementById('remaining-questions');
+    if (remainingElement && currentQuiz) {
+        remainingElement.textContent = `${currentQuiz.length - currentQuestionIndex - 1}题`;
+    }
+}
+
 // 加载单一类型题库
 function loadSingleTypeQuiz(quizNumber) {
     // 清空之前的题目
@@ -37,7 +45,10 @@ function loadSingleTypeQuiz(quizNumber) {
     answeredCount = 0;
     score = 0;
     currentQuestionIndex = 0;
+    
+    // 更新统计信息和剩余题数
     updateStats();
+    updateRemainingQuestions();
 
     // 检查是否选择了有效的题库
     if (!quizNumber || !quizFiles[quizNumber]) {
@@ -53,6 +64,10 @@ function loadSingleTypeQuiz(quizNumber) {
             if (currentQuiz.length > 0) {
                 renderQuestion();
                 submitButton.disabled = false;
+                
+                // 更新统计信息和剩余题数
+                updateStats();
+                updateRemainingQuestions();
             } else {
                 questionContainer.innerHTML = '<p>题库为空</p>';
             }
@@ -86,6 +101,9 @@ function loadMixedQuiz() {
         updateStats();
         renderQuestion();
         submitButton.disabled = false;
+        
+        // 显示剩余题数
+        updateRemainingQuestions();
     }).catch(error => {
         console.error('加载题库时出错:', error);
         alert('无法加载题库，请稍后再试');
@@ -180,6 +198,7 @@ function checkAnswer() {
 
         feedbackElement.style.display = 'block';
         updateStats();
+        updateRemainingQuestions();
 
         // 延迟跳转到下一题
         setTimeout(() => {
@@ -187,6 +206,10 @@ function checkAnswer() {
                 currentQuestionIndex++;
                 renderQuestion();
                 feedbackElement.style.display = 'none';
+                
+                // 更新统计信息和剩余题数
+                updateStats();
+                updateRemainingQuestions();
             } else {
                 submitButton.disabled = true;
                 // 显示总分
@@ -213,6 +236,7 @@ function checkAnswer() {
 
         feedbackElement.style.display = 'block';
         updateStats();
+        updateRemainingQuestions();
 
         // 延迟跳转到下一题
         setTimeout(() => {
@@ -220,6 +244,10 @@ function checkAnswer() {
                 currentQuestionIndex++;
                 renderQuestion();
                 feedbackElement.style.display = 'none';
+                
+                // 更新统计信息和剩余题数
+                updateStats();
+                updateRemainingQuestions();
             } else {
                 submitButton.disabled = true;
                 // 显示总分
@@ -240,9 +268,20 @@ function arraysEqual(a, b) {
 
 // 更新答题统计信息
 function updateStats() {
-    answeredCountElement.textContent = answeredCount;
-    scoreElement.textContent = score;
-    accuracyElement.textContent = answeredCount > 0 ? ((score / answeredCount) * 100).toFixed(2) + '%' : '0%';
+    // 只有在混合题库模式下才显示统计数据
+    if (currentQuiz && currentQuiz.length > 30) {
+        answeredCountElement.textContent = answeredCount;
+        scoreElement.textContent = score;
+        
+        // 修复正确率计算：正确率 = 得分 / (题数 * 单题分数)
+        const totalPossibleScore = currentQuiz.length * 2;
+        accuracyElement.textContent = totalPossibleScore > 0 ? ((score / totalPossibleScore) * 100).toFixed(2) + '%' : '0%';
+    } else {
+        // 非混合题库模式隐藏统计数据
+        answeredCountElement.textContent = '';
+        scoreElement.textContent = '';
+        accuracyElement.textContent = '';
+    }
 }
 
 // 处理题库选择
