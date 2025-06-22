@@ -187,7 +187,7 @@
     "id": 24,
     "question": "小青龙汤中干姜、细辛的作用是",
     "options": ["散寒解表", "温肺化饮", "温中止呕", "温肾助阳"],
-    "correctAnswer": 1,
+    "correctAnswer": 2,
     "type": "single",
     "explanation": ""
   },
@@ -427,7 +427,7 @@
     "id": 54,
     "question": "理血剂的作用不包括",
     "options": ["活血祛瘀", "止血", "补血", "以上都不是"],
-    "correctAnswer": 3,
+    "correctAnswer": 2,
     "type": "single",
     "explanation": ""
   },
