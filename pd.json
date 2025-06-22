@@ -59,7 +59,7 @@
     "id": 8,
     "question": "清营汤中犀角（今用水牛角代）为君药，主要作用是清热凉血、滋阴生津。",
     "options": ["正确", "错误"],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "type": "single",
     "explanation": ""
   },
@@ -115,7 +115,7 @@
     "id": 15,
     "question": "四物汤重在补血，兼以行血，长于调经，方中熟地、白芍为补血要药，性均偏寒。",
     "options": ["正确", "错误"],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "type": "single",
     "explanation": ""
   },
@@ -307,7 +307,7 @@
     "id": 39,
     "question": "羚角钩藤汤主治肝热生风证，方中羚羊角与钩藤配伍，主要作用是平肝潜阳。",
     "options": ["正确", "错误"],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "type": "single",
     "explanation": ""
   },
