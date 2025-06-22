@@ -11,7 +11,7 @@
     "id": 2,
     "question": "麻黄汤中麻黄与桂枝用量相等，以增强发汗解表之力。",
     "options": ["正确", "错误"],
-    "correctAnswer": 0,
+    "correctAnswer": 1,
     "type": "single",
     "explanation": ""
   },
